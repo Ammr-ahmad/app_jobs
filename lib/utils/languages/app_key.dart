@@ -1,0 +1,34 @@
+class AppKey {
+  static String appName = 'appName';
+  static String companyNavBar = 'companyNavBar';
+  static String notifications = 'notifications';
+  static String profile = 'profile';
+  static String selectLanguage = 'selectLanguage';
+  static String language = 'language';
+  static String english = 'english';
+  static String arabic = 'arabic';
+  static String userName = 'userName';
+  static String jobSubmissions = 'jobSubmissions';
+  static String translate = 'translate';
+  static String signIn = 'signIn';
+  static String signUp = 'signUp';
+  static String forgotPassword = 'forgotPassword';
+  static String phone = 'phone';
+  static String date = 'date';
+  static String logout = 'logout';
+  static String yes = 'yes';
+  static String no = 'no';
+  static String email = 'email';
+  static String password = 'password';
+  static String confirmPass = 'confirmPass';
+  static String gender = 'gender';
+  static String male = 'male';
+  static String feMale = 'feMale';
+  static String errorNoData = 'errorNoData';
+  static String errorFetchData = 'errorFetchData';
+  static String errorDownloading = 'errorDownloading';
+  static String errorUninstalling = 'errorUninstalling';
+  static String somethingWrong = 'somethingWrong';
+  static String emptyDownloaded = 'emptyDownloaded';
+  static String noInternet = 'noInternet';
+}
