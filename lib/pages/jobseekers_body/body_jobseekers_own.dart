@@ -138,15 +138,6 @@ class _BodyOwnState extends State<BodyOwn> {
           ));
 
   void submit() {
-    // Consumer<ProfileProvider>(builder: (context, value, child) {
-    //         final profile = value.companyall;
-
-    // Provider.of<ProfileProvider>(context, listen: false).setSkills =
-    //     controller.text;
-    //String userName =
-    // Provider.of<ProfileProvider>(context, listen: false).setID = 'id';
-    //final provider = Provider.of<ProfileProvider>(context);
-    // List<dynamic>? myList = provider.getSkills;
     controller.clear();
     Navigator.of(context).pop();
   }
@@ -473,3 +464,14 @@ class _BodyOwnState extends State<BodyOwn> {
     ]));
   }
 }
+
+
+// Consumer<ProfileProvider>(builder: (context, value, child) {
+    //         final profile = value.companyall;
+
+    // Provider.of<ProfileProvider>(context, listen: false).setSkills =
+    //     controller.text;
+    //String userName =
+    // Provider.of<ProfileProvider>(context, listen: false).setID = 'id';
+    //final provider = Provider.of<ProfileProvider>(context);
+    // List<dynamic>? myList = provider.getSkills;

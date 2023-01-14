@@ -1,7 +1,4 @@
-import 'package:final_project_job2023/model/jobseekers_api/model_job_list.dart';
-import 'package:final_project_job2023/model/jobseekers_api/model_jobseekers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ExperienceInfo extends StatefulWidget {
   const ExperienceInfo({super.key});
@@ -20,7 +17,7 @@ class _ExperienceInfoState extends State<ExperienceInfo> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ModelJob?>(context);
+    // final provider = Provider.of<ModelJob?>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue.shade800,

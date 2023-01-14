@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 
 class AppRoutes {
   static Map<String, WidgetBuilder> route = {
-    BodyOwn.routeName: (context) => const BodyOwn(),
     MyRunApp.routeName: (context) => const MyRunApp(),
+    BodyOwn.routeName: (context) => const BodyOwn(),
     SplashScreen.routeName: (context) => const SplashScreen(),
     SignInScreen.routeName: (context) => const SignInScreen(),
     SignUp.routeName: (context) => const SignUp(),

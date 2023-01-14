@@ -39,8 +39,10 @@ class ApiKey {
   static String position = 'position';
 
   // * Main End point
-  static String baseApi = 'https://0bdd-176-29-250-80.eu.ngrok.io/';
+  static String baseApi = 'https://d1e3-86-108-8-38.eu.ngrok.io/';
   static String apiCompany = 'companies';
   static String apiNotification = 'notification';
   static String apiProfile = 'jobSeekers';
 }
+
+// https://0bdd-176-29-250-80.eu.ngrok.io/

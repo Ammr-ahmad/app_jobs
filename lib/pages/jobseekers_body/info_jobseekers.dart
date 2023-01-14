@@ -1,7 +1,5 @@
 import 'package:final_project_job2023/components/appbar/appbar_main.dart';
-import 'package:final_project_job2023/model/jobseekers_api/model_jobseekers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BodyInfoPersonal extends StatefulWidget {
   const BodyInfoPersonal({Key? key}) : super(key: key);
@@ -27,7 +25,7 @@ class _BodyInfoPersonalState extends State<BodyInfoPersonal> {
 
   @override
   Widget build(BuildContext context) {
-    final providerdata = Provider.of<ModelJob?>(context);
+    // final providerdata = Provider.of<ModelJob?>(context);
     return Scaffold(
         appBar: const AppBarMain(),
         body: SingleChildScrollView(

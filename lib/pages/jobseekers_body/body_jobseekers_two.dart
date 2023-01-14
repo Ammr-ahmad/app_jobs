@@ -1,7 +1,5 @@
-import 'package:final_project_job2023/controllers/api_controllers.dart';
 import 'package:final_project_job2023/pages/jobseekers_body/info_jobseekers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BodyTwo extends StatefulWidget {
   const BodyTwo({super.key});
@@ -22,12 +20,12 @@ class _MyWidgetState extends State<BodyTwo> {
     super.initState();
     controllertwo = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final ControllerApiDataAll controllerApidata =
-          Provider.of<ControllerApiDataAll>(context, listen: false);
-      Future.delayed(Duration.zero, () {
-        controllerApidata.dataJobs;
-      });
+      // final ControllerApiDataAll controllerApidata =
+      //     Provider.of<ControllerApiDataAll>(context, listen: false);
+      // Future.delayed(Duration.zero, () {
+      //   controllerApidata.dataJobs;
     });
+    // });
   }
 
   @override

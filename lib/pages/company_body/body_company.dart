@@ -1,10 +1,7 @@
 import 'package:final_project_job2023/components/appbar/appbar_main.dart';
-import 'package:final_project_job2023/model/company_api/model_com_list.dart';
-import 'package:final_project_job2023/model/company_api/model_comany.dart';
+import 'package:final_project_job2023/model/model_company/model_com_data.dart';
 import 'package:final_project_job2023/pages/company_body/card_company.dart';
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
 
 class BodyCompany extends StatefulWidget {
   const BodyCompany({Key? key}) : super(key: key);
@@ -22,12 +19,12 @@ class _BodyCompanyState extends State<BodyCompany> {
     super.dispose();
   }
 
-  final List<ModelCompany> searchListCom = [];
-  List<ModelCompany> get company {
+  final List<CompanyData> searchListCom = [];
+  List<CompanyData> get company {
     return searchListCom;
   }
 
-  List<ModelCompany> findByCompanyName({required String name}) {
+  List<CompanyData> findByCompanyName({required String name}) {
     return searchListCom
         .where(
           (element) => element.name!.toLowerCase().contains(
@@ -37,14 +34,20 @@ class _BodyCompanyState extends State<BodyCompany> {
         .toList();
   }
 
-  ModelCompany findById(String compId) {
+  CompanyData findById(String compId) {
     return searchListCom.firstWhere((element) => element.id == compId);
   }
 
   @override
   Widget build(BuildContext context) {
-    final companyProvider = Provider.of<ModelCompanyList>(context);
-    final searchListCom = companyProvider.company;
+    // final companyProvider = Provider.of<ModelCompanyList>(context);
+    // final searchListCom = companyProvider.company;
+    // ChangeNotifierProvider(create: (_) => ModelCompanyList()),
+    // ChangeNotifierProvider(create: (_) => ModelCompany()),
+    // ChangeNotifierProvider(
+    //  create: (_) => ModelJob(),
+    //  ),
+    // ChangeNotifierProvider(create: (_) => ModelNotifications(link: '')),
     return Scaffold(
         appBar: const AppBarMain(),
         body: Padding(
@@ -64,7 +67,7 @@ class _BodyCompanyState extends State<BodyCompany> {
                       onChanged: (value) {
                         setState(
                           () {
-                            final searchListCom = companyProvider.company;
+                            // final searchListCom = companyProvider.company;
                           },
                         );
                       },
@@ -99,25 +102,49 @@ class _BodyCompanyState extends State<BodyCompany> {
                     width: 10,
                     height: 10,
                   ),
-                  searchList.text.isNotEmpty
-                      ? const Center(
-                          child: Text("No Location Found"),
-                        )
-                      : Expanded(
-                          child: ListView.builder(
-                            itemCount: searchList.text.isNotEmpty &&
-                                    searchListCom!.isNotEmpty
-                                ? company.length
-                                : searchListCom?.length,
-                            itemBuilder: (context, i) {
-                              return ChangeNotifierProvider.value(
-                                  value: searchList.text.isNotEmpty
-                                      ? company[i]
-                                      : searchListCom?[i],
-                                  child: const CompanyCard());
-                            },
-                          ),
-                        )
+
+                  const Expanded(child: CompanyCard())
+                  // searchList.text.isNotEmpty
+                  //     ? const Center(
+                  //         child: Text("No Location Found"),
+                  //       )
+                  //     : Expanded(
+                  //         child:
+
+                  // ListView.builder(
+                  //   itemCount: searchList.text.isNotEmpty &&
+                  //           searchListCom!.isNotEmpty
+                  //       ? company.length
+                  //       : searchListCom?.length,
+                  //   itemBuilder: (context, i) {
+                  //     return ChangeNotifierProvider.value(
+                  //       value: searchList.text.isNotEmpty
+                  //           ? company[i]
+                  //           : searchListCom?[i],
+                  //       child: Padding(
+                  //         padding: const EdgeInsets.all(8.0),
+                  //         child: Column(
+                  //           children: [
+                  //             Row(
+                  //               children: const [
+                  //                 Text(
+                  //                   'Page Notifications',
+                  //                   style: TextStyle(
+                  //                       color: Color(0xFF478DE0),
+
+                  //                       fontSize: 22,
+                  //                       fontWeight: FontWeight.bold),
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //             const CompanyCard(),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
+                  //  )
                 ])));
   }
 }
@@ -138,10 +165,10 @@ class _BodyCompanyState extends State<BodyCompany> {
 //final ControllerApiDataAll providerApi =
 //  Provider.of<ControllerApiDataAll>(context);
 // //searchListCom!.isEmpty &&
-                  //searchListCom!.isEmpty
+//searchListCom!.isEmpty
 
-                  // final ControllerApiDataAll controllerApi =
-    //     Provider.of<ControllerApiDataAll>(context, listen: false);
-    // Future.delayed(Duration.zero, () {
-    //   controllerApi.fetchDataCompany(context);
-    // });
+// final ControllerApiDataAll controllerApi =
+//     Provider.of<ControllerApiDataAll>(context, listen: false);
+// Future.delayed(Duration.zero, () {
+//   controllerApi.fetchDataCompany(context);
+// });
