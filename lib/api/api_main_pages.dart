@@ -3,10 +3,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
-//https://jsonplaceholder.typicode.com mohammad
-
-class ServiceCall {
-  static String baseUrl = 'https://d1e3-86-108-8-38.eu.ngrok.io/';
+//https://jsonplaceholder.typicode.com moh
+class CallApiServices {
+  static String baseUrl = 'http://localhost:3000/api';
   Future<dynamic> serviceCall(
       {required String url,
       required String methodType,
@@ -62,7 +61,7 @@ class ServiceCall {
           break;
         default:
       }
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         var data = json.decode(response.body);
         print(json.decode(response.body));
         return data;
@@ -91,4 +90,4 @@ class ServiceCall {
   }
 }
 
-ServiceCall serviceCall = ServiceCall();
+CallApiServices serviceCall = CallApiServices();

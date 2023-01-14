@@ -11,7 +11,7 @@ class NotificationsProvider extends ChangeNotifier {
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
-        url: "posts", methodType: "get", headers: headers);
+        url: "notifications", methodType: "get", headers: headers);
 
     if (response != null) {
       if (response != "wrong data") {

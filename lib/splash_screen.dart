@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'package:final_project_job2023/pages/company_body/body_company.dart';
+import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
+import 'package:final_project_job2023/pages/prefrences/cash_helper.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -15,12 +18,20 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 4),
-        () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: ((context) {
-              return const SignInScreen();
-            }))));
+    Timer(const Duration(seconds: 4), () {
+      if (CachHelper.prefs!.getString("token") != null) {
+        ApplicationPrefrencesData.getUserDataFromShared();
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: ((context) {
+          return const BodyCompany();
+        })));
+      } else {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: ((context) {
+          return const SignInScreen();
+        })));
+      }
+    });
   }
 
   @override

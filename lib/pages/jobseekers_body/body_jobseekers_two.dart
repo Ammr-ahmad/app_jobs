@@ -19,19 +19,11 @@ class _MyWidgetState extends State<BodyTwo> {
   void initState() {
     super.initState();
     controllertwo = TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      // final ControllerApiDataAll controllerApidata =
-      //     Provider.of<ControllerApiDataAll>(context, listen: false);
-      // Future.delayed(Duration.zero, () {
-      //   controllerApidata.dataJobs;
-    });
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
   }
 
   @override
   void dispose() {
-    // Provider.of<ProfileProvider>(context, listen: false).setlang =
-    //     controllertwo.text;
     controllertwo.dispose();
     super.dispose();
   }
@@ -137,15 +129,11 @@ class _MyWidgetState extends State<BodyTwo> {
           ]));
 
   void ok() {
-    // Provider.of<ProfileProvider>(context, listen: false).setlang =
-    //     controllertwo.text;
     controllertwo.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    // final provider = Provider.of<ProfileProvider>(context);
-    // List<dynamic>? langList = provider.getLangs;
     return Column(children: [
       SingleChildScrollView(
           child: Column(children: [
@@ -173,19 +161,6 @@ class _MyWidgetState extends State<BodyTwo> {
                         width: 20,
                         height: 10,
                       ),
-                      // Consumer<ProfileProvider>(
-                      //     builder: (context, value, child) {
-                      //   final profile = value.companyall;
-                      //   return Column(children: [
-                      //     Row(children: const [
-                      //       Text(
-                      //         'fullName: ${' ,ld'}',
-                      //         style: TextStyle(
-                      //           fontSize: 16,
-                      //           fontWeight: FontWeight.w500,
-                      //         ),
-                      //       ),
-                      //     ]),
                       Row(
                         children: const [
                           Text(
@@ -303,10 +278,7 @@ class _MyWidgetState extends State<BodyTwo> {
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              // for (int i = 0; i < langList.length; i++)
-                              //  Text("•${langList[i]} "),
-                            ],
+                            children: const [],
                           ),
                         ],
                       ),
@@ -351,17 +323,6 @@ class _MyWidgetState extends State<BodyTwo> {
                   ),
                 ],
               ),
-              // Row(
-              //   children: [
-              //     Text(
-              //       'pos: ${provider.getId}',
-              //       style: const TextStyle(
-              //         fontSize: 16,
-              //         fontWeight: FontWeight.normal,
-              //       ),
-              //     ),
-              //   ],
-              // ),
               const SizedBox(
                 height: 10,
               ),
@@ -414,3 +375,41 @@ class _MyWidgetState extends State<BodyTwo> {
     ]);
   }
 }
+
+// final provider = Provider.of<ProfileProvider>(context);
+// List<dynamic>? langList = provider.getLangs;
+// Provider.of<ProfileProvider>(context, listen: false).setlang =
+//     controllertwo.text;
+
+// final ControllerApiDataAll controllerApidata =
+//     Provider.of<ControllerApiDataAll>(context, listen: false);
+// Future.delayed(Duration.zero, () {
+//   controllerApidata.dataJobs;
+// Provider.of<ProfileProvider>(context, listen: false).setlang =
+//     controllertwo.text;
+// Consumer<ProfileProvider>(
+//     builder: (context, value, child) {
+//   final profile = value.companyall;
+//   return Column(children: [
+//     Row(children: const [
+//       Text(
+//         'fullName: ${' ,ld'}',
+//         style: TextStyle(
+//           fontSize: 16,
+//           fontWeight: FontWeight.w500,
+//         ),
+//       ),
+//     ]),
+// for (int i = 0; i < langList.length; i++)
+                              //  Text("•${langList[i]} "),
+                              // Row(
+              //   children: [
+              //     Text(
+              //       'pos: ${provider.getId}',
+              //       style: const TextStyle(
+              //         fontSize: 16,
+              //         fontWeight: FontWeight.normal,
+              //       ),
+              //     ),
+              //   ],
+              // ),

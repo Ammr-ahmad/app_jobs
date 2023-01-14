@@ -1,4 +1,4 @@
-import 'package:final_project_job2023/api/api_com_req.dart';
+import 'package:final_project_job2023/api/com_api_req.dart';
 import 'package:final_project_job2023/pages/company_body/gridview_company.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

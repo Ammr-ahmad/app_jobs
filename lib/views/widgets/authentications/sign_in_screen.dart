@@ -1,9 +1,11 @@
+import 'package:final_project_job2023/controllers/auth_provider.dart';
 import 'package:final_project_job2023/components/appbar/appbar_auth.dart';
 import 'package:final_project_job2023/components/bottom_navbar/bottom_nav_main.dart';
 import 'package:final_project_job2023/views/widgets/authentications/forget_pass_screen.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({
@@ -303,40 +305,58 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    child: Center(
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 60,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0)),
-                              elevation: 0.6,
-                              backgroundColor: Colors.blue,
-                            ),
-                            onPressed: signIn,
-                            // onPressed: email.text == "" || password.text == ""
-                            //     ? null
-                            //     : () async {
-                            //         if (formstate.currentState!.validate()) {
-                            //           setState(() {
-                            //             isLoading == true;
-                            //           });
-                            //           await signIn(email.text, password.text);
-                            //         }
-                            //       },
-                            child: const Text(
-                              'SIGN IN ',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  letterSpacing: 2,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                    ),
+                  Consumer<AuthProvider>(
+                    builder: (ctx, authProvider, ch) {
+                      return authProvider.getIsAuthStatus
+                          ? const CircularProgressIndicator(
+                              color: Colors.red,
+                              backgroundColor: Colors.green,
+                            )
+                          : Container(
+                              margin: const EdgeInsets.symmetric(vertical: 10),
+                              child: Center(
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: 60,
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30.0)),
+                                        elevation: 0.6,
+                                        backgroundColor: Colors.blue,
+                                      ),
+                                      onPressed: () async {
+                                        await authProvider
+                                            .loginApi(
+                                                email: email.text,
+                                                password: password.text)
+                                            .then((value) {
+                                          if (value) {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) {
+                                                  return const BottomNavigationBarPages();
+                                                },
+                                              ),
+                                            );
+                                          } else {
+                                            print("7aga 3lat");
+                                          }
+                                        });
+                                      },
+                                      child: const Text(
+                                        'SIGN IN ',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            color: Colors.white,
+                                            letterSpacing: 2,
+                                            fontWeight: FontWeight.bold),
+                                      )),
+                                ),
+                              ),
+                            );
+                    },
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 10),

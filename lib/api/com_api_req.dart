@@ -11,7 +11,7 @@ class CompanyProvider extends ChangeNotifier {
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
-        url: "posts", methodType: "get", headers: headers);
+        url: "companies", methodType: "get", headers: headers);
 
     if (response != null) {
       if (response != "wrong data") {

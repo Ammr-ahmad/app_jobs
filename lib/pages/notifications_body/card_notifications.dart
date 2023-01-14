@@ -1,4 +1,4 @@
-import 'package:final_project_job2023/api/api_noti_req.dart';
+import 'package:final_project_job2023/api/noti_api_req.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,8 +9,6 @@ class CardNotifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List ammar = [];
-    // final providerNot = Provider.of<ModelNotifications>(context);
     return FutureBuilder(
       future: context.read<NotificationsProvider>().getPostFromApi(),
       builder: (ctx, snapshot) {
@@ -70,14 +68,6 @@ class CardNotifications extends StatelessWidget {
                               ))),
                         );
                       },
-
-                      //  child: Column(
-                      //   children: [
-                      //     const SizedBox(
-                      //       height: 10,
-                      //     ),
-                      //    ],
-                      //              ),
                     )
                   : const Center(
                       child: Text("No posts yet"),
@@ -235,3 +225,13 @@ class CardNotifications extends StatelessWidget {
 //             ]);
 //       },
 //     );
+// List ammar = [];
+    // final providerNot = Provider.of<ModelNotifications>(context);
+
+    //  child: Column(
+                      //   children: [
+                      //     const SizedBox(
+                      //       height: 10,
+                      //     ),
+                      //    ],
+                      //              ),

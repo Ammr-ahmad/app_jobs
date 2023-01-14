@@ -1,4 +1,5 @@
 import 'package:final_project_job2023/api/api_main_pages.dart';
+import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
 import 'package:flutter/material.dart';
 import '../model/model_jobs_seekers/model_jobs_data.dart';
 
@@ -8,6 +9,7 @@ class JobSeekers extends ChangeNotifier {
 
   var headers = {
     'Content-type': 'application/json; charset=UTF-8',
+    "Authorization": "${ApplicationPrefrencesData.token}"
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(

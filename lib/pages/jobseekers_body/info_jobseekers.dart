@@ -25,7 +25,6 @@ class _BodyInfoPersonalState extends State<BodyInfoPersonal> {
 
   @override
   Widget build(BuildContext context) {
-    // final providerdata = Provider.of<ModelJob?>(context);
     return Scaffold(
         appBar: const AppBarMain(),
         body: SingleChildScrollView(
@@ -230,14 +229,6 @@ class _BodyInfoPersonalState extends State<BodyInfoPersonal> {
                             backgroundColor: Colors.blue.shade600,
                           ),
                           onPressed: () {
-                            // fullN = providerdata.fullN.toString();
-                            // emAdd = emailAddress.text;
-                            // addRess = address.text;
-                            // phoneNum = phoneNumber.text;
-                            // fullN = providerdata.userId;
-                            // profileProvider.setEmailAdd = emailAddress.text;
-                            // profileProvider.setAddress = address.text;
-                            // profileProvider.setPhone = phoneNumber.text;
                             Navigator.of(context, rootNavigator: true)
                                 .pop('expe');
                           },
@@ -256,3 +247,14 @@ class _BodyInfoPersonalState extends State<BodyInfoPersonal> {
         ])));
   }
 }
+
+
+// final providerdata = Provider.of<ModelJob?>(context);
+// fullN = providerdata.fullN.toString();
+                            // emAdd = emailAddress.text;
+                            // addRess = address.text;
+                            // phoneNum = phoneNumber.text;
+                            // fullN = providerdata.userId;
+                            // profileProvider.setEmailAdd = emailAddress.text;
+                            // profileProvider.setAddress = address.text;
+                            // profileProvider.setPhone = phoneNumber.text;

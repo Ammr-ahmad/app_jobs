@@ -17,7 +17,6 @@ class _ExperienceInfoState extends State<ExperienceInfo> {
 
   @override
   Widget build(BuildContext context) {
-    // final provider = Provider.of<ModelJob?>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue.shade800,
@@ -140,9 +139,7 @@ class _ExperienceInfoState extends State<ExperienceInfo> {
                     comName = comController.text;
                     expName = expController.text;
                     desc = descController.text;
-                    //provider. = comController.text;
-                    //profileProvider.setExpName = expController.text;
-                    //provider.setDesc = desc;
+
                     Navigator.of(context, rootNavigator: true).pop('expe');
                   },
                   child: const Text(
@@ -158,3 +155,9 @@ class _ExperienceInfoState extends State<ExperienceInfo> {
     );
   }
 }
+
+
+// final provider = Provider.of<ModelJob?>(context);
+//provider. = comController.text;
+                    //profileProvider.setExpName = expController.text;
+                    //provider.setDesc = desc;

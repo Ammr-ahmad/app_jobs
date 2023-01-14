@@ -1,9 +1,13 @@
-import 'package:final_project_job2023/api/api_com_req.dart';
-import 'package:final_project_job2023/api/api_noti_req.dart';
+import 'package:final_project_job2023/api/com_api_req.dart';
+import 'package:final_project_job2023/api/job_api_req.dart';
+import 'package:final_project_job2023/api/noti_api_req.dart';
+import 'package:final_project_job2023/controllers/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 List<SingleChildWidget> providerListAll = [
   ChangeNotifierProvider(create: (_) => CompanyProvider()),
   ChangeNotifierProvider(create: (_) => NotificationsProvider()),
+  ChangeNotifierProvider(create: (_) => AuthProvider()),
+  ChangeNotifierProvider(create: (_) => JobSeekers()),
 ];
