@@ -32,8 +32,7 @@ class CardNotifications extends StatelessWidget {
                                   padding: const EdgeInsets.all(12),
                                   child: Center(
                                     child: Text(
-                                      providerNot.getNotList[index].senderID ??
-                                          "",
+                                      providerNot.getNotList[index].name ?? "",
                                       style: const TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),

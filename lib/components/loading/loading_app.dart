@@ -66,17 +66,3 @@ class _LoadingAppState extends State<LoadingApp> {
 
   getCompanyData() {}
 }
-
-
-
-
-
- 
-
-
-
-// // isLoading || errorText == ''
-// //             ? const CircularProgressIndicator()
-// //             : errorText == ''
-// //                 ? const CircularProgressIndicator()
-// //                 : Text(errorText),

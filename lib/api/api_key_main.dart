@@ -44,5 +44,3 @@ class ApiKey {
   static String apiNotification = 'notification';
   static String apiProfile = 'jobSeekers';
 }
-
-// https://0bdd-176-29-250-80.eu.ngrok.io/

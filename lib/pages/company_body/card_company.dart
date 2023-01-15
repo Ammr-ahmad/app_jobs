@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:final_project_job2023/api/com_api_req.dart';
 import 'package:final_project_job2023/pages/company_body/gridview_company.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,6 @@ class CompanyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final data = Provider.of<ModelCompany?>(context, listen: true);
     return FutureBuilder(
       future: context.read<CompanyProvider>().getPostFromApi(),
       builder: (ctx, snapshot) {
@@ -74,16 +75,7 @@ class CompanyCard extends StatelessWidget {
                                 ],
                               ))),
                         );
-                      },
-
-                      //  child: Column(
-                      //   children: [
-                      //     const SizedBox(
-                      //       height: 10,
-                      //     ),
-                      //    ],
-                      //              ),
-                    )
+                      })
                   : const Center(
                       child: Text("No posts yet"),
                     );

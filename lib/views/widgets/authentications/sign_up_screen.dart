@@ -1,6 +1,5 @@
 import 'package:final_project_job2023/components/appbar/appbar_auth.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_in_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -25,35 +24,15 @@ class _SignUpState extends State<SignUp> {
   String? gender;
   String? dateofbarith;
 
-  // Future<User> usersignUp(String userName, String email, String password,
-  //     String phone, String date) async {
-  //   Uri url = Uri.parse('${ApiKey.baseApi}/signup');
-  //   Map<String, dynamic> requestPayload = {
-  //     "userName": userName,
-  //     "email": email,
-  //     "password": password,
-  //     "phone": phone,
-  //     "date": date,
-  //   };
-
-  //   final http.Response response = await http.post(url,
-  //       headers: {'Content-Type': 'application/json'},
-  //       body: jsonEncode(requestPayload));
-  //   if (response.statusCode == 201) {
-  //     return User.fromJson(json.decode(response.body));
-  //   } else {
-  //     throw Exception("Error data");
+  // Future<void> signUp() async {
+  //   try {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //         email: emailController.text.trim(),
+  //         password: usernameController.text.trim());
+  //   } on FirebaseAuthException catch (e) {
+  //     print(e);
   //   }
-  //
-  Future<void> signUp() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: usernameController.text.trim());
-    } on FirebaseAuthException catch (e) {
-      print(e);
-    }
-  }
+  // }
 
   @override
   void dispose() {
@@ -454,7 +433,7 @@ class _SignUpState extends State<SignUp> {
                       onPressed: () {
                         setState(() {
                           if (formkey.currentState!.validate()) {
-                            signUp;
+                            //signUp;
                             // usersignUp(
                             //   usernameController.text,
                             //   emailController.text,

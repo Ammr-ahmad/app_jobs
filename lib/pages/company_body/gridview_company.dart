@@ -7,11 +7,10 @@ class CompanyViewData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      //itemCount: compProvider.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 2, // Horizontal,
-        crossAxisSpacing: 2, // Vertical
+        mainAxisSpacing: 2,
+        crossAxisSpacing: 2,
       ),
       itemBuilder: (context, index) {
         return const Text('Amma');

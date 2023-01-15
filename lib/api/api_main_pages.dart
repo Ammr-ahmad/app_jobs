@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
-//https://jsonplaceholder.typicode.com moh
 class CallApiServices {
-  static String baseUrl = 'http://localhost:3000/api';
+  static String baseUrl = 'https://d6f9-178-77-187-158.eu.ngrok.io/api';
   Future<dynamic> serviceCall(
       {required String url,
       required String methodType,
@@ -41,7 +40,6 @@ class CallApiServices {
                 throw Exception('Mo Exception');
               },
             );
-
             print(response.statusCode.toString());
           }
           break;
@@ -61,6 +59,7 @@ class CallApiServices {
           break;
         default:
       }
+      print(response.statusCode);
       if (response.statusCode == 200 || response.statusCode == 201) {
         var data = json.decode(response.body);
         print(json.decode(response.body));
@@ -82,7 +81,6 @@ class CallApiServices {
       if (e is SocketException) {
         print("Socket exception: ${e.toString()}");
       } else if (e is TimeoutException) {
-        // ignore: avoid_print
         print("Timeout exception: ${e.toString()}");
       } else
         print("Unhandled exception: ${e.toString()}");

@@ -147,11 +147,11 @@ class _BodyOwnState extends State<BodyOwn> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: context.read<JobSeekers>().getPostFromApi(),
+        future: context.read<JobSeekersProvider>().getPostFromApi(),
         builder: (ctx, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            return Consumer<JobSeekers>(
+            return Consumer<JobSeekersProvider>(
               builder: (ctx, providerJob, ch) {
                 return providerJob.getJobList.isNotEmpty
                     ? ListView.builder(

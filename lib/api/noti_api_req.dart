@@ -1,6 +1,7 @@
 import 'package:final_project_job2023/api/api_main_pages.dart';
+import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
 import 'package:flutter/material.dart';
-import '../model/model_notifications/model_notifications_data.dart';
+import '../models/model_notifications/model_notifications_data.dart';
 
 class NotificationsProvider extends ChangeNotifier {
   List<NotificationsData> notification = [];
@@ -8,11 +9,12 @@ class NotificationsProvider extends ChangeNotifier {
 
   var headers = {
     'Content-type': 'application/json; charset=UTF-8',
+    "Authorization": "${ApplicationPrefrencesData.token}"
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
-        url: "notifications", methodType: "get", headers: headers);
-
+        url: "user/pushNotification", methodType: "get", headers: headers);
+    print(response);
     if (response != null) {
       if (response != "wrong data") {
         for (var notifications in response) {

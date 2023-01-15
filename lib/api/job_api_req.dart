@@ -1,9 +1,9 @@
 import 'package:final_project_job2023/api/api_main_pages.dart';
 import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
 import 'package:flutter/material.dart';
-import '../model/model_jobs_seekers/model_jobs_data.dart';
+import '../models/model_jobs_seekers/model_jobs_data.dart';
 
-class JobSeekers extends ChangeNotifier {
+class JobSeekersProvider extends ChangeNotifier {
   List<JobSeekersData> jobseekersdata = [];
   List<JobSeekersData> get getJobList => jobseekersdata;
 
@@ -13,7 +13,7 @@ class JobSeekers extends ChangeNotifier {
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
-        url: "posts", methodType: "get", headers: headers);
+        url: "/user/jobseekers", methodType: "get", headers: headers);
 
     if (response != null) {
       if (response != "wrong data") {

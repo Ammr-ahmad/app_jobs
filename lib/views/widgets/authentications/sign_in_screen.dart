@@ -1,9 +1,7 @@
-import 'package:final_project_job2023/controllers/auth_provider.dart';
+import 'package:final_project_job2023/controllers/auth1_provider.dart';
 import 'package:final_project_job2023/components/appbar/appbar_auth.dart';
 import 'package:final_project_job2023/components/bottom_navbar/bottom_nav_main.dart';
-import 'package:final_project_job2023/views/widgets/authentications/forget_pass_screen.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_up_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,64 +16,17 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   bool securePassword = true;
   bool isLoading = false;
   @override
   void dispose() {
     super.dispose();
-    email.dispose();
-    password.dispose();
+    emailController.dispose();
+    passwordController.dispose();
   }
-
-  Future<void> signIn() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.text.trim(),
-        password: password.text.trim(),
-      );
-
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) {
-            return const BottomNavigationBarPages();
-          },
-        ),
-      );
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  // Future<void> signIn(String email, String password) async {
-  //   Uri url = Uri.parse(ApiKey.baseApi);
-  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //   Map body = {"email": email, "password": password};
-  //   var jsonResponse;
-  //   var res = await http.post(url, body: body);
-  //   if (res.statusCode == 200) {
-  //     jsonResponse = json.decode(res.body);
-
-  //     print('Response status : ${res.statusCode}');
-
-  //     print('Response status : ${res.body}');
-
-  //     if (jsonResponse != null) {
-  //       setState(() {
-  //         isLoading = false;
-  //       });
-  //       sharedPreferences.setString("token", jsonResponse['token']);
-  //       // Navigator.of(context).pushNamed(BottomNavigationBarPages.routeName);
-  //     }
-  //   } else {
-  //     setState(() {
-  //       isLoading = false;
-  //     });
-  //     print('Response status : ${res.body}');
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -118,32 +69,37 @@ class _SignInScreenState extends State<SignInScreen> {
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 30, horizontal: 20),
-                              child: Row(
-                                children: const [
-                                  Text(
-                                    'Sign In',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                              child: SingleChildScrollView(
+                                child: Row(
+                                  children: const [
+                                    Text(
+                                      'Sign In',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 32,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Row(
-                              children: const [
-                                Text(
-                                  "Welcome Back",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: const [
+                                  Text(
+                                    "Welcome Back",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             const SizedBox(
                               height: 10,
@@ -184,7 +140,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                           TextFormField(
                             style: const TextStyle(color: Colors.black),
-                            controller: email,
+                            controller: emailController,
                             validator: ((value) {
                               if (value!.isEmpty) {
                                 return 'email address must not be empty';
@@ -232,7 +188,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             height: 8,
                           ),
                           TextFormField(
-                            controller: password,
+                            controller: passwordController,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Your Password must be not empty pleas enter password  ";
@@ -285,27 +241,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(ForgotPassScreen.routeName);
-                          },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                                fontSize: 16,
-                                decoration: TextDecoration.underline,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Consumer<AuthProvider>(
+                  Consumer<ProviderSignIn>(
                     builder: (ctx, authProvider, ch) {
                       return authProvider.getIsAuthStatus
                           ? const CircularProgressIndicator(
@@ -329,8 +268,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                       onPressed: () async {
                                         await authProvider
                                             .loginApi(
-                                                email: email.text,
-                                                password: password.text)
+                                                email: emailController.text,
+                                                password:
+                                                    passwordController.text)
                                             .then((value) {
                                           if (value) {
                                             Navigator.of(context).push(
@@ -392,10 +332,12 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 }
 
-//  try {
+
+  // Future<void> signIn() async {
+  //   try {
   //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: email.text.trim(),
-  //       password: password.text.trim(),
+  //       email: emailController.text.trim(),
+  //       password: passwordController.text.trim(),
   //     );
 
   //     Navigator.of(context).push(
@@ -408,4 +350,4 @@ class _SignInScreenState extends State<SignInScreen> {
   //   } catch (e) {
   //     print(e);
   //   }
-  // Future  async{}
+  // }

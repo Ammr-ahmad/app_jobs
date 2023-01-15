@@ -3,7 +3,7 @@ import 'package:final_project_job2023/api/api_main_pages.dart';
 import 'package:flutter/cupertino.dart';
 import '../pages/prefrences/app_pref.dart';
 
-class AuthProvider extends ChangeNotifier {
+class ProviderSignIn extends ChangeNotifier {
   bool _isAuth = false;
   get getIsAuthStatus => _isAuth;
 
@@ -12,7 +12,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  var authHeaders = {
+  var authHeadersSignIn = {
     'Content-type': 'application/json; charset=UTF-8',
   };
 
@@ -24,7 +24,7 @@ class AuthProvider extends ChangeNotifier {
     var data = await serviceCall.serviceCall(
         url: "auth/login",
         methodType: "post",
-        headers: authHeaders,
+        headers: authHeadersSignIn,
         body: jsonEncode(body));
 
     if (data != null) {
@@ -32,6 +32,7 @@ class AuthProvider extends ChangeNotifier {
         ApplicationPrefrencesData.storeUserDataIntoShared(
             email: email, password: password, token: data['token']);
         changeAuthStatus();
+
         return true;
       } else {
         changeAuthStatus();

@@ -1,5 +1,5 @@
 import 'package:final_project_job2023/components/appbar/appbar_main.dart';
-import 'package:final_project_job2023/model/model_company/model_com_data.dart';
+import 'package:final_project_job2023/models/model_company/model_com_data.dart';
 import 'package:final_project_job2023/pages/company_body/card_company.dart';
 import 'package:flutter/material.dart';
 
@@ -40,14 +40,6 @@ class _BodyCompanyState extends State<BodyCompany> {
 
   @override
   Widget build(BuildContext context) {
-    // final companyProvider = Provider.of<ModelCompanyList>(context);
-    // final searchListCom = companyProvider.company;
-    // ChangeNotifierProvider(create: (_) => ModelCompanyList()),
-    // ChangeNotifierProvider(create: (_) => ModelCompany()),
-    // ChangeNotifierProvider(
-    //  create: (_) => ModelJob(),
-    //  ),
-    // ChangeNotifierProvider(create: (_) => ModelNotifications(link: '')),
     return Scaffold(
         appBar: const AppBarMain(),
         body: Padding(
@@ -102,73 +94,17 @@ class _BodyCompanyState extends State<BodyCompany> {
                     width: 10,
                     height: 10,
                   ),
-
                   const Expanded(child: CompanyCard())
-                  // searchList.text.isNotEmpty
-                  //     ? const Center(
-                  //         child: Text("No Location Found"),
-                  //       )
-                  //     : Expanded(
-                  //         child:
-
-                  // ListView.builder(
-                  //   itemCount: searchList.text.isNotEmpty &&
-                  //           searchListCom!.isNotEmpty
-                  //       ? company.length
-                  //       : searchListCom?.length,
-                  //   itemBuilder: (context, i) {
-                  //     return ChangeNotifierProvider.value(
-                  //       value: searchList.text.isNotEmpty
-                  //           ? company[i]
-                  //           : searchListCom?[i],
-                  //       child: Padding(
-                  //         padding: const EdgeInsets.all(8.0),
-                  //         child: Column(
-                  //           children: [
-                  //             Row(
-                  //               children: const [
-                  //                 Text(
-                  //                   'Page Notifications',
-                  //                   style: TextStyle(
-                  //                       color: Color(0xFF478DE0),
-
-                  //                       fontSize: 22,
-                  //                       fontWeight: FontWeight.bold),
-                  //                 ),
-                  //               ],
-                  //             ),
-                  //             const CompanyCard(),
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
-                  //  )
                 ])));
   }
 }
 
-// : providerApi.dataSocial?.social != null
-//             ? const SocialGridView()
-//             : ErrorText(title: AppLangKey.errorNoData);
-// * fetch data no listen any change
-// final ControllerApi controllerApi =
-//     Provider.of<ControllerApi>(context, listen: false);
-// Future.delayed(Duration.zero, () {
-//   controllerApi.fetchDataSocial(context);
-// });
-// Provider Controller Api
 
-//usersList
-
-//final ControllerApiDataAll providerApi =
-//  Provider.of<ControllerApiDataAll>(context);
-// //searchListCom!.isEmpty &&
-//searchListCom!.isEmpty
-
-// final ControllerApiDataAll controllerApi =
-//     Provider.of<ControllerApiDataAll>(context, listen: false);
-// Future.delayed(Duration.zero, () {
-//   controllerApi.fetchDataCompany(context);
-// });
+ // final companyProvider = Provider.of<ModelCompanyList>(context);
+    // final searchListCom = companyProvider.company;
+    // ChangeNotifierProvider(create: (_) => ModelCompanyList()),
+    // ChangeNotifierProvider(create: (_) => ModelCompany()),
+    // ChangeNotifierProvider(
+    //  create: (_) => ModelJob(),
+    //  ),
+    // ChangeNotifierProvider(create: (_) => ModelNotifications(link: '')),
