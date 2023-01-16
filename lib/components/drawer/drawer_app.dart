@@ -3,7 +3,7 @@ import 'package:final_project_job2023/components/drawer/drawer_setting.dart';
 import 'package:final_project_job2023/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../utils/languages/app_key.dart';
+import '../../api/api_key_main.dart';
 import '../../pages/notifications_body/body_notifications.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -38,7 +38,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   Icons.arrow_forward,
                   color: Colors.blue,
                 ),
-                title: AppKey.jobSubmissions,
+                title: ApiKey.jobSubmissions,
                 icon: SvgPicture.asset(
                   'assets/icons/job-search.svg',
                   width: 30,
@@ -46,7 +46,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 ),
                 onTap: () {}),
             DrawerDesignSetting(
-              title: AppKey.notifications,
+              title: ApiKey.notifications,
               icon: SvgPicture.asset(
                 "assets/icons/translate.svg",
                 width: 30,
@@ -59,7 +59,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   Icons.arrow_forward,
                   color: Colors.blue,
                 ),
-                title: AppKey.logout,
+                title: ApiKey.logout,
                 icon: SvgPicture.asset(
                   "assets/icons/logout.svg",
                   width: 30,
