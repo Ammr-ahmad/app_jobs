@@ -313,7 +313,7 @@ class _BodyOwnState extends State<BodyOwn> {
                                                                           ),
                                                                           onPressed:
                                                                               () {
-                                                                            Navigator.of(context, rootNavigator: true).pop('dialog');
+                                                                            //Navigator.of(context, rootNavigator: true).pop('dialog');
                                                                           },
                                                                           child:
                                                                               const Text(
@@ -379,12 +379,8 @@ class _BodyOwnState extends State<BodyOwn> {
                                               ),
                                             ],
                                           ),
-                                          //   Text(
-
-                                          //     providerJob
-                                          //               .getJobList[index].experince ??
-                                          //       "",
-                                          // ),
+                                          Text(
+                                              '${providerJob.getJobList[index].experince}'),
                                           Container(
                                             margin: const EdgeInsets.all(20),
                                             child: Row(

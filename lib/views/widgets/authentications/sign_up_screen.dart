@@ -3,17 +3,17 @@ import 'package:final_project_job2023/views/widgets/authentications/sign_in_scre
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({
     Key? key,
   }) : super(key: key);
   static const routeName = 'SignUp';
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController usernameController = TextEditingController();

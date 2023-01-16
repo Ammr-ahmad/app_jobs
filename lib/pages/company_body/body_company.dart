@@ -58,9 +58,7 @@ class _BodyCompanyState extends State<BodyCompany> {
                       controller: searchList,
                       onChanged: (value) {
                         setState(
-                          () {
-                            // final searchListCom = companyProvider.company;
-                          },
+                          () {},
                         );
                       },
                       cursorColor: Colors.black,
@@ -98,13 +96,4 @@ class _BodyCompanyState extends State<BodyCompany> {
                 ])));
   }
 }
-
-
- // final companyProvider = Provider.of<ModelCompanyList>(context);
-    // final searchListCom = companyProvider.company;
-    // ChangeNotifierProvider(create: (_) => ModelCompanyList()),
-    // ChangeNotifierProvider(create: (_) => ModelCompany()),
-    // ChangeNotifierProvider(
-    //  create: (_) => ModelJob(),
-    //  ),
-    // ChangeNotifierProvider(create: (_) => ModelNotifications(link: '')),
+// // final searchListCom = companyProvider.company;

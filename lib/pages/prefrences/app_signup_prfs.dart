@@ -1,4 +1,4 @@
-import 'cash_helper.dart';
+import 'helper_cash.dart';
 
 class AppSignUp {
   static storeUserRegisterShared({
@@ -8,10 +8,10 @@ class AppSignUp {
     required String phone,
     required String date,
   }) {
-    CachHelper.prefs!.setString("username", username);
-    CachHelper.prefs!.setString("email", email);
-    CachHelper.prefs!.setString("password", password);
-    CachHelper.prefs!.setString("phone", phone);
-    CachHelper.prefs!.setString("date", date);
+    HelperSave.prefs!.setString("username", username);
+    HelperSave.prefs!.setString("email", email);
+    HelperSave.prefs!.setString("password", password);
+    HelperSave.prefs!.setString("phone", phone);
+    HelperSave.prefs!.setString("date", date);
   }
 }

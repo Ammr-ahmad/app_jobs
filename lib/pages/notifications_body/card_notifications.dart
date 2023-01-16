@@ -85,34 +85,7 @@ class CardNotifications extends StatelessWidget {
 }
 
 
-// this.data,
-//final ModelNotifications data;
 
-// SizedBox(
-//       child: InkWell(
-//         child: Card(
-//           child: Stack(
-//             children: [
-//               Card(
-//                 child: Text('senderName:' '${providerNot.senderName}'),
-//               ),
-//               Card(
-//                 child: Text('sender Id:' '${providerNot.senderID}'),
-//               ),
-//               Card(
-//                 child: Text('sender Id:' '${providerNot.senderID}'),
-//               ),
-//               Card(
-//                 child: Text('StartInterView:' '${providerNot.interviewStart}'),
-//               ),
-//               Card(
-//                 child: Text('Startinterview:' '${providerNot.interviewStart}'),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
 
 
 //  Card(

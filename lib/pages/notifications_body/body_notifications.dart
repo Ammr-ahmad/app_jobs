@@ -23,15 +23,3 @@ class _BodyNotificationsState extends State<BodyNotifications> {
     );
   }
 }
-
-
-// final ControllerApiDataAll controllerApi =
-    //     Provider.of<ControllerApiDataAll>(context, listen: false);
-    // ModelNotificationList? notification =
-    //     controllerApi.dataNotifications?.notification;
-
- // final ControllerApiDataAll controllerApidata =
-    //     Provider.of<ControllerApiDataAll>(context, listen: false);
-    // Future.delayed(Duration.zero, () {
-    //   controllerApidata.fetchDataNotification(context);
-    // });    

@@ -1,4 +1,4 @@
-import 'cash_helper.dart';
+import 'helper_cash.dart';
 
 class ApplicationPrefrencesData {
   static String? token;
@@ -7,12 +7,12 @@ class ApplicationPrefrencesData {
       {required String email,
       required String password,
       required String token}) {
-    CachHelper.prefs!.setString("token", token);
-    CachHelper.prefs!.setString("email", email);
-    CachHelper.prefs!.setString("pass", password);
+    HelperSave.prefs!.setString("token", token);
+    HelperSave.prefs!.setString("email", email);
+    HelperSave.prefs!.setString("pass", password);
   }
 
   static getUserDataFromShared() {
-    token = CachHelper.prefs!.getString("token");
+    token = HelperSave.prefs!.getString("token");
   }
 }

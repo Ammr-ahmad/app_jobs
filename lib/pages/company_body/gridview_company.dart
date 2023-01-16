@@ -1,138 +1,118 @@
+import 'package:final_project_job2023/pages/company_body/card_company.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CompanyViewData extends StatelessWidget {
+import '../../api/com_api_req.dart';
+import '../../models/model_company/model_com_data.dart';
+
+class CompanyViewData extends StatefulWidget {
   static const routeName = 'Company';
   const CompanyViewData({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 2,
-        crossAxisSpacing: 2,
-      ),
-      itemBuilder: (context, index) {
-        return const Text('Amma');
-        // return CompanyCard(data: dataCompany.elementAt(index));
-      },
-    );
-    //  SafeArea(
-    //   child: Scaffold(
-    //     body: SingleChildScrollView(
-    //       child: Column(
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         crossAxisAlignment: CrossAxisAlignment.start,
-    //         children: [
-    //           Padding(
-    //             padding: const EdgeInsets.all(10),
-    //             child: BackButton(
-    //               color: Colors.blue,
-    //               onPressed: () {
-    //                 Navigator.of(context)
-    //                     .pop(MaterialPageRoute(builder: ((context) {
-    //                   return const CompanyCard();
-    //                 })));
-    //               },
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " name: ${compProvider.email}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " email: ${compProvider.location}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " description: ${compProvider.phone}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " user phone number: ${compProvider.userFirstName}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " location : ${compProvider.phone}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15),
-    //             child: Row(
-    //               children: [
-    //                 Text(
-    //                   " Positions : ${compProvider.userPhoneNumber}",
-    //                   style: const TextStyle(fontSize: 17),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
-  }
+  State<CompanyViewData> createState() => _CompanyViewDataState();
 }
 
+class _CompanyViewDataState extends State<CompanyViewData> {
+  CompanyData? companyData;
 
-// GridView.builder(
-//       itemCount: dataCompany.length,
-//       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 2,
-//         mainAxisSpacing: 2, // Horizontal,
-//         crossAxisSpacing: 2, // Vertical
-//       ),
-//       itemBuilder: (context, index) {
-//         return CompanyCard(data: dataCompany.elementAt(index));
-//       },
-//     );
-
-// Provider Controller Api get list<MoselSocial> data
-    // final ControllerApiDataAll datacompany = Provider.of<ControllerApiDataAll>(context, listen: false);
-    // final List<ModelCompany> data =
-    //     Provider.of<ControllerApiDataAll>(context, listen: false)
-    //         .dataCompany!
-    //         .company!;
-    // final compProvider = Provider.of<ModelCompany>(context);
-    // final companyId = ModalRoute.of(context)!.settings.arguments as String;
-    // final company = companyId.(companyId);
-    // final List<ModelCompany> dataCompany =
-    //     Provider.of<ControllerApiDataAll?>(context, listen: true)
-    //         .dataCompany!
-    //         .company!;
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Consumer<CompanyProvider>(
+            builder: (ctx, companyProvider, ch) {
+              companyData = companyProvider
+                  .getComList[companyProvider.getSelectedCompanyIndex];
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: BackButton(
+                      color: Colors.blue,
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pop(MaterialPageRoute(builder: ((context) {
+                          return const CompanyCard();
+                        })));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " name: ${companyData!.name ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " email: ${companyData!.email ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " description: ${companyData!.desc ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " user phone number: ${companyData!.phone ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " location : ${companyData!.location ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Row(
+                      children: [
+                        Text(
+                          " Positions : ${companyData!.userPhoneNumber ?? ""}",
+                          style: const TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

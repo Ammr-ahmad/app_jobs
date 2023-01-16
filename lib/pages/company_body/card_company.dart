@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:final_project_job2023/api/com_api_req.dart';
 import 'package:final_project_job2023/pages/company_body/gridview_company.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +26,11 @@ class CompanyCard extends StatelessWidget {
                           elevation: 10,
                           child: ListTile(
                               onTap: () {
+                                providerCom.changeSelectedCompanyIndex(index);
                                 Navigator.pushNamed(
-                                    context, CompanyViewData.routeName,
-                                    arguments: providerCom.getComList);
+                                  context,
+                                  CompanyViewData.routeName,
+                                );
                               },
                               contentPadding: const EdgeInsets.all(18),
                               textColor: Colors.white,
@@ -91,36 +91,3 @@ class CompanyCard extends StatelessWidget {
     );
   }
 }
-
-// GridTile(
-//       //header: IconInstall(dataModel: dataModel),
-//       footer: Card(
-//         //color: AppColors.blackCardSocial,
-//         child: Padding(
-//           padding: EdgeInsets.all(20),
-//           child: Row(
-//             children: [
-//               Expanded(
-//                 child: Text(
-//                   '${data.name}',
-//                   //style: TextStyle(color: AppColors.bgWhite),
-//                   maxLines: 1,
-//                   overflow: TextOverflow.ellipsis,
-//                 ),
-//               ),
-//               Text(data.companyType),
-//               Text(
-//                 '${data.desc}',
-                
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//       // * image
-//       child: Card(
-//         child: Text(data.location),
-//       ),
-//     );
-
-// required ModelCompany data,

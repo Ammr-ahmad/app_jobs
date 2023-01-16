@@ -310,7 +310,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                           onPressed: () {
                             Navigator.of(context)
-                                .pushReplacementNamed(SignUp.routeName);
+                                .pushReplacementNamed(SignUpScreen.routeName);
                           },
                           child: const Text(
                             'Register Account',

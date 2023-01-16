@@ -26,4 +26,12 @@ class CompanyProvider extends ChangeNotifier {
     }
     return [];
   }
+
+  // selected company index
+  int? _selectedCompanyIndex;
+  get getSelectedCompanyIndex => _selectedCompanyIndex;
+
+  changeSelectedCompanyIndex(int index) {
+    _selectedCompanyIndex = index;
+  }
 }
