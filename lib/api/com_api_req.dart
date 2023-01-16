@@ -9,16 +9,18 @@ class CompanyProvider extends ChangeNotifier {
 
   var headers = {
     'Content-type': 'application/json; charset=UTF-8',
-    "Authorization": "${ApplicationPrefrencesData.token}"
+    "Authorization": "Bearer ${ApplicationPrefrencesData.token}"
   };
+
   getPostFromApi() async {
+    // print(ApplicationPrefrencesData.token!);
     var response = await serviceCall.serviceCall(
         url: "user/companies", methodType: "get", headers: headers);
 
     if (response != null) {
       if (response != "wrong data") {
         for (var company in response) {
-          companies.add(company.fromJson(company));
+          companies.add(CompanyData.fromJson(company));
         }
         return companies;
       }

@@ -1,29 +1,39 @@
 class CompanyData {
   String? id;
-  String? userFirstName;
-  String? userLastName;
-  String? userPhoneNumber;
+  String? role;
   String? name;
-  String? desc;
-  String? phone;
+  String? companyUserPhone;
   String? email;
-  String? companyType;
+  String? phone;
+  String? password;
   String? location;
-  List<String>? wantedPositions;
+  String? companyUserFullName;
+  String? desc;
+  String? website;
+  List<dynamic>? wantedPositions;
+  List<String>? favourites;
+  String? isHidden;
+  String? companyType;
+  String? createdAt;
+  String? updatedAt;
   String? createdDate;
   int? v;
 
   CompanyData({
     this.id,
-    this.userFirstName,
-    this.userLastName,
-    this.userPhoneNumber,
+    this.role,
     this.name,
-    this.desc,
-    this.phone,
+    this.companyUserPhone,
     this.email,
-    this.companyType,
+    this.password,
     this.location,
+    this.companyUserFullName,
+    this.desc,
+    this.website,
+    this.isHidden,
+    this.companyType,
+    this.createdAt,
+    this.updatedAt,
     this.wantedPositions,
     this.createdDate,
     this.v,
@@ -31,19 +41,23 @@ class CompanyData {
 
   factory CompanyData.fromJson(Map<String, dynamic> data) {
     return CompanyData(
-      id: data['id'],
-      userFirstName: data['userFirstName'],
-      userLastName: data['userLastName'],
-      userPhoneNumber: data['userPhoneNumber'],
+      id: data['_id'],
+      role: data['role'],
       name: data['name'],
-      desc: data['desc'],
-      phone: data['phone'],
+      companyUserPhone: data['companyUserPhone'],
       email: data['email'],
-      companyType: data['companyType'],
+      password: data['password'],
       location: data['location'],
+      companyUserFullName: data['companyUserFullName'],
+      desc: data['desc'],
+      website: data['website'],
+      isHidden: data['isHidden'],
+      companyType: data['companyType'],
+      createdAt: data['createdAt'],
+      updatedAt: data['updatedAt'],
       wantedPositions: data['wantedPositions'],
       createdDate: data['createdDate'],
-      v: data['v'],
+      v: data['__v'],
     );
   }
 }

@@ -68,7 +68,7 @@ class _CompanyViewDataState extends State<CompanyViewData> {
                     child: Row(
                       children: [
                         Text(
-                          " description: ${companyData!.desc ?? ""}",
+                          " description: ${companyData!.id ?? ""}",
                           style: const TextStyle(fontSize: 17),
                         ),
                       ],
@@ -101,7 +101,7 @@ class _CompanyViewDataState extends State<CompanyViewData> {
                     child: Row(
                       children: [
                         Text(
-                          " Positions : ${companyData!.userPhoneNumber ?? ""}",
+                          " Positions : ${companyData!.companyUserPhone ?? ""}",
                           style: const TextStyle(fontSize: 17),
                         ),
                       ],

@@ -40,8 +40,8 @@ class CompanyCard extends StatelessWidget {
                                   padding: const EdgeInsets.all(12),
                                   child: Center(
                                     child: Text(
-                                      providerCom
-                                              .getComList[index].companyType ??
+                                      providerCom.getComList[index]
+                                              .companyUserPhone ??
                                           "",
                                       style: const TextStyle(
                                           fontSize: 17,

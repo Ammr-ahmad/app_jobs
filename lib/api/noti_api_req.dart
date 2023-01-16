@@ -9,16 +9,16 @@ class NotificationsProvider extends ChangeNotifier {
 
   var headers = {
     'Content-type': 'application/json; charset=UTF-8',
-    "Authorization": "${ApplicationPrefrencesData.token}"
+    "Authorization": "Bearer ${ApplicationPrefrencesData.token}"
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
         url: "user/pushNotification", methodType: "get", headers: headers);
-    print(response);
+    // print(response);
     if (response != null) {
       if (response != "wrong data") {
         for (var notifications in response) {
-          notification.add(notifications.fromJson(notifications));
+          notification.add(NotificationsData.fromJson(notifications));
         }
         return notification;
       }

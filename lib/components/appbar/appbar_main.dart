@@ -6,12 +6,14 @@ class AppBarMain extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.blue.shade900,
-      title: Text('Jordan Job Seekers ',
-          style:
-              GoogleFonts.aBeeZee(fontSize: 22, fontWeight: FontWeight.w600)),
-      centerTitle: true,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue.shade900,
+        title: Text('Jordan Job Seekers ',
+            style:
+                GoogleFonts.aBeeZee(fontSize: 22, fontWeight: FontWeight.w600)),
+        centerTitle: true,
+      ),
     );
   }
 

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class CallApiServices {
-  static String baseUrl = 'https://d6f9-178-77-187-158.eu.ngrok.io/api';
+  static String baseUrl = 'https://7c0b-46-32-121-72.eu.ngrok.io/api';
   Future<dynamic> serviceCall(
       {required String url,
       required String methodType,

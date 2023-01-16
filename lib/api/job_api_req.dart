@@ -9,16 +9,16 @@ class JobSeekersProvider extends ChangeNotifier {
 
   var headers = {
     'Content-type': 'application/json; charset=UTF-8',
-    "Authorization": "${ApplicationPrefrencesData.token}"
+    "Authorization": "Bearer ${ApplicationPrefrencesData.token}"
   };
   getPostFromApi() async {
     var response = await serviceCall.serviceCall(
-        url: "/user/jobseekers", methodType: "get", headers: headers);
+        url: "user/jobseekers", methodType: "get", headers: headers);
 
     if (response != null) {
       if (response != "wrong data") {
         for (var jobseekers in response) {
-          jobseekersdata.add(jobseekers.fromJson(jobseekers));
+          jobseekersdata.add(JobSeekersData.fromJson(jobseekers));
         }
         return jobseekersdata;
       }

@@ -40,7 +40,6 @@ class ApiKey {
   static String appName = 'appName';
   static String companyNavBar = 'companyNavBar';
   static String notifications = 'notifications';
-
   static String selectLanguage = 'selectLanguage';
   static String language = 'language';
   static String english = 'english';
@@ -51,15 +50,12 @@ class ApiKey {
   static String signIn = 'signIn';
   static String signUp = 'signUp';
   static String forgotPassword = 'forgotPassword';
-
   static String date = 'date';
   static String logout = 'logout';
   static String yes = 'yes';
   static String no = 'no';
-
   static String password = 'password';
   static String confirmPass = 'confirmPass';
-
   static String male = 'male';
   static String feMale = 'feMale';
   static String errorNoData = 'errorNoData';
