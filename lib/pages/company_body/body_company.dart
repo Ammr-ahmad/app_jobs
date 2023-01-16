@@ -1,8 +1,8 @@
 import 'package:final_project_job2023/components/appbar/appbar_main.dart';
+import 'package:final_project_job2023/components/drawer/drawer_app.dart';
 import 'package:final_project_job2023/models/model_company/model_com_data.dart';
 import 'package:final_project_job2023/pages/company_body/card_company.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BodyCompany extends StatefulWidget {
   const BodyCompany({Key? key}) : super(key: key);

@@ -200,10 +200,3 @@ class CardNotifications extends StatelessWidget {
 // List ammar = [];
     // final providerNot = Provider.of<ModelNotifications>(context);
 
-    //  child: Column(
-                      //   children: [
-                      //     const SizedBox(
-                      //       height: 10,
-                      //     ),
-                      //    ],
-                      //              ),

@@ -17,9 +17,6 @@ class _BodyNotificationsState extends State<BodyNotifications> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: AppBarMain(),
-      body: CardNotifications(),
-    );
+    return const CardNotifications();
   }
 }

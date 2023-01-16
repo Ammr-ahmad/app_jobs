@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 class AppRoutes {
   static Map<String, WidgetBuilder> route = {
     MyRunApp.routeName: (context) => const MyRunApp(),
-    BottomNavigationBarPages.routeName: ((context) =>
-        const BottomNavigationBarPages()),
     SplashScreen.routeName: (context) => const SplashScreen(),
     SignInScreen.routeName: (context) => const SignInScreen(),
     SignUpScreen.routeName: (context) => const SignUpScreen(),

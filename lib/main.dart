@@ -24,6 +24,7 @@ class JobSeekers extends StatelessWidget {
     return MultiProvider(
         providers: providerListAll,
         child: MaterialApp(
+            home: MyRunApp(),
             onGenerateTitle: (context) => ApiKey.appName,
             debugShowCheckedModeBanner: false,
             initialRoute: SplashScreen.routeName,

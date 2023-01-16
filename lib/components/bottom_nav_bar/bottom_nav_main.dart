@@ -1,5 +1,4 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:final_project_job2023/components/appbar/appbar_main.dart';
 import 'package:final_project_job2023/pages/company_body/body_company.dart';
 import 'package:final_project_job2023/pages/jobseekers_body/body_jobseekers_own.dart';
 import 'package:flutter/material.dart';
