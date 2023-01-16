@@ -3,6 +3,7 @@ import 'package:final_project_job2023/components/appbar/appbar_auth.dart';
 import 'package:final_project_job2023/components/bottom_nav_bar/bottom_nav_main.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -247,9 +248,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   Consumer<ProviderSignIn>(
                     builder: (ctx, authProvider, ch) {
                       return authProvider.getIsAuthStatus
-                          ? const CircularProgressIndicator(
-                              color: Colors.red,
-                              backgroundColor: Colors.green,
+                          ? const SpinKitCircle(
+                              color: Colors.blue,
                             )
                           : Container(
                               margin: const EdgeInsets.symmetric(vertical: 10),
@@ -331,23 +331,3 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
-
-
-  // Future<void> signIn() async {
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: emailController.text.trim(),
-  //       password: passwordController.text.trim(),
-  //     );
-
-  //     Navigator.of(context).push(
-  //       MaterialPageRoute(
-  //         builder: (context) {
-  //           return const BottomNavigationBarPages();
-  //         },
-  //       ),
-  //     );
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }

@@ -1,7 +1,6 @@
 import 'package:final_project_job2023/pages/company_body/card_company.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../api/com_api_req.dart';
 import '../../models/model_company/model_com_data.dart';
 
@@ -44,66 +43,168 @@ class _CompanyViewDataState extends State<CompanyViewData> {
                   Padding(
                     padding: const EdgeInsets.all(15),
                     child: Row(
-                      children: [
+                      children: const [
                         Text(
-                          " name: ${companyData!.name ?? ""}",
-                          style: const TextStyle(fontSize: 17),
+                          'Info Companies',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 150,
+                            height: 45,
+                            child: Text(
+                              " name: ${companyData!.name ?? ""}",
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Text(
-                          " email: ${companyData!.email ?? ""}",
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 280,
+                            height: 45,
+                            child: Text(
+                              " email: ${companyData!.email ?? ""}",
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Text(
-                          " description: ${companyData!.id ?? ""}",
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 350,
+                            height: 45,
+                            child: Text(
+                              " description: ${companyData!.id ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Text(
-                          " user phone number: ${companyData!.phone ?? ""}",
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 200,
+                            height: 45,
+                            child: Text(
+                              " location : ${companyData!.location ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Text(
-                          " location : ${companyData!.location ?? ""}",
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 200,
+                            height: 45,
+                            child: Text(
+                              " role : ${companyData!.role ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     child: Row(
                       children: [
-                        Text(
-                          " Positions : ${companyData!.companyUserPhone ?? ""}",
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 300,
+                            height: 45,
+                            child: Text(
+                              " companyUserPhone : ${companyData!.companyUserPhone ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 300,
+                            height: 45,
+                            child: Text(
+                              " website : ${companyData!.website ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Card(
+                          color: Colors.blue.shade500,
+                          child: SizedBox(
+                            width: 300,
+                            height: 45,
+                            child: Text(
+                              " isHidden : ${companyData!.isHidden ?? ""}",
+                              style: const TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),

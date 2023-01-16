@@ -67,8 +67,8 @@ class ApiKey {
   static String noInternet = 'noInternet';
 
   // * Main End point
-  static String baseApi = 'https://d1e3-86-108-8-38.eu.ngrok.io/';
-  static String apiCompany = 'companies';
-  static String apiNotification = 'notification';
+  static String baseApi = 'https://7c0b-46-32-121-72.eu.ngrok.io/api';
+  static String apiCompany = 'user/companies';
+  static String apiNotification = 'user/pushnotification';
   static String apiProfile = 'jobSeekers';
 }

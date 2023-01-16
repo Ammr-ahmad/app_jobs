@@ -1,6 +1,7 @@
 import 'package:final_project_job2023/api/com_api_req.dart';
 import 'package:final_project_job2023/pages/company_body/gridview_company.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class CompanyCard extends StatelessWidget {
@@ -22,7 +23,7 @@ class CompanyCard extends StatelessWidget {
                       itemCount: providerCom.getComList.length,
                       itemBuilder: (ctx, index) {
                         return Card(
-                          color: Colors.indigo,
+                          color: const Color(0xFF398AE5),
                           elevation: 10,
                           child: ListTile(
                               onTap: () {
@@ -77,14 +78,15 @@ class CompanyCard extends StatelessWidget {
                         );
                       })
                   : const Center(
-                      child: Text("No posts yet"),
+                      child: Text("No Company Info"),
                     );
             },
           );
         } else {
           return const Center(
-            child: CircularProgressIndicator(
-                backgroundColor: Colors.red, color: Colors.green),
+            child: SpinKitCircle(
+              color: Colors.blue,
+            ),
           );
         }
       },

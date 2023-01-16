@@ -1,5 +1,7 @@
+import 'package:final_project_job2023/api/job_api_req.dart';
 import 'package:final_project_job2023/pages/jobseekers_body/info_jobseekers.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BodyTwo extends StatefulWidget {
   const BodyTwo({super.key});
@@ -134,247 +136,324 @@ class _MyWidgetState extends State<BodyTwo> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SingleChildScrollView(
-          child: Column(children: [
-        Padding(
-            padding: const EdgeInsets.all(10),
-            child: Card(
-                margin: const EdgeInsets.all(20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                color: Colors.grey[400],
-                child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(children: [
-                      Row(
-                        children: const [
-                          Text(
-                            'Personal Info',
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 20,
-                        height: 10,
-                      ),
-                      Row(
-                        children: const [
-                          Text(
-                            'fullName: ${'kxd'}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          Text(
-                            'fullName: ${'a'}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          Text(
-                            'fullName: ${'amm'}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const SizedBox(
-                            width: 175,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (context) {
-                                return const BodyInfoPersonal();
-                              }));
-                            },
-                            child: const Text(
-                              'Edit the Info >>',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Divider(),
-                    ])))),
-        Card(
-            child: Column(children: [
-          Padding(
-              padding: const EdgeInsets.all(10),
-              child: Card(
-                  margin: const EdgeInsets.all(20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  color: Colors.grey[400],
-                  child: Column(children: [
-                    const Padding(padding: EdgeInsets.all(10)),
-                    Row(
-                      children: const [
-                        Text(
-                          'Language',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      margin: const EdgeInsetsDirectional.all(10),
-                      child: TextFormField(
-                        enabled: false,
-                        controller: sliderlangController,
-                        cursorColor: Colors.black,
-                        cursorHeight: 24,
-                        decoration: InputDecoration(
-                            enabled: false,
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: const BorderSide(
-                                  color: Colors.black45,
-                                  width: 2,
-                                )),
-                            hintText: 'Add New Language',
-                            hintStyle: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30))),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [],
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(children: [
-                      const SizedBox(
-                        width: 145,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            dialogtwo();
-                          },
-                          child: const Text(
-                            'Add New Language >>',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue),
-                          )),
-                      const Divider(),
-                    ])
-                  ])))
-        ])),
-        Card(
-            margin: const EdgeInsets.all(25),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-            ),
-            color: Colors.grey[400],
-            child: Column(children: [
-              Row(
-                children: const [
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Text(
-                    'Position',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                margin: const EdgeInsetsDirectional.all(10),
-                child: TextFormField(
-                  cursorColor: Colors.black,
-                  cursorHeight: 24,
-                  decoration: InputDecoration(
-                      enabled: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                            color: Colors.black45,
-                            width: 2,
-                          )),
-                      hintText: 'Add Position',
-                      hintStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30))),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 170,
-                  ),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Add New Position +',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ))
-                ],
-              ),
-              const Divider(),
-            ]))
-      ]))
-    ]);
-  }
-}
+    return FutureBuilder(
+        future: context.read<JobSeekersProvider>().getPostFromApi(),
+        builder: (ctx, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            return Consumer<JobSeekersProvider>(
+              builder: (ctx, providerJob, ch) {
+                return providerJob.getJobList.isNotEmpty
+                    ? ListView.builder(
+                        itemCount: providerJob.getJobList.length,
+                        itemBuilder: (ctx, index) {
+                          return Column(
+                            children: [
+                              SingleChildScrollView(
+                                  child: Column(children: [
+                                Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Card(
+                                        margin: const EdgeInsets.all(20),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                        ),
+                                        color: Colors.grey[400],
+                                        child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(children: [
+                                              Row(
+                                                children: const [
+                                                  Text(
+                                                    'Personal Info',
+                                                    style: TextStyle(
+                                                        fontSize: 25,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                width: 20,
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    providerJob
+                                                            .getJobList[index]
+                                                            .name ??
+                                                        "",
+                                                    style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    providerJob
+                                                            .getJobList[index]
+                                                            .email ??
+                                                        "",
+                                                    style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    providerJob
+                                                            .getJobList[index]
+                                                            .phone ??
+                                                        "",
+                                                    style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  const SizedBox(
+                                                    width: 175,
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context).push(
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const BodyInfoPersonal();
+                                                      }));
+                                                    },
+                                                    child: const Text(
+                                                      'Edit the Info >>',
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              const Divider(),
+                                            ])))),
+                                Card(
+                                    child: Column(children: [
+                                  Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Card(
+                                          margin: const EdgeInsets.all(20),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                          ),
+                                          color: Colors.grey[400],
+                                          child: Column(children: [
+                                            const Padding(
+                                                padding: EdgeInsets.all(10)),
+                                            Row(
+                                              children: const [
+                                                Text(
+                                                  'Language',
+                                                  style: TextStyle(
+                                                      fontSize: 25,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 20,
+                                            ),
+                                            Container(
+                                              margin:
+                                                  const EdgeInsetsDirectional
+                                                      .all(10),
+                                              child: TextFormField(
+                                                enabled: false,
+                                                controller:
+                                                    sliderlangController,
+                                                cursorColor: Colors.black,
+                                                cursorHeight: 24,
+                                                decoration: InputDecoration(
+                                                    enabled: false,
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Colors
+                                                                  .black45,
+                                                              width: 2,
+                                                            )),
+                                                    hintText:
+                                                        'Add New Language',
+                                                    hintStyle: const TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                    filled: true,
+                                                    fillColor: Colors.white,
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30))),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Row(
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                          '${providerJob.getJobList[index].language}'),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(children: [
+                                              const SizedBox(
+                                                width: 145,
+                                              ),
+                                              TextButton(
+                                                  onPressed: () {
+                                                    dialogtwo();
+                                                  },
+                                                  child: const Text(
+                                                    'Add New Language >>',
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.blue),
+                                                  )),
+                                              const Divider(),
+                                            ])
+                                          ])))
+                                ])),
+                                Card(
+                                  margin: const EdgeInsets.all(25),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  color: Colors.grey[400],
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: const [
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+                                          Text(
+                                            'Position',
+                                            style: TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        margin:
+                                            const EdgeInsetsDirectional.all(10),
+                                        child: TextFormField(
+                                          cursorColor: Colors.black,
+                                          cursorHeight: 24,
+                                          decoration: InputDecoration(
+                                              enabled: true,
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.black45,
+                                                    width: 2,
+                                                  )),
+                                              hintText: 'Add Position',
+                                              hintStyle: const TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                              filled: true,
+                                              fillColor: Colors.white,
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          30))),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const SizedBox(
+                                            width: 170,
+                                          ),
+                                          TextButton(
+                                              onPressed: () {},
+                                              child: const Text(
+                                                'Add New Position +',
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ))
+                                        ],
+                                      ),
+                                      const Divider(),
+                                    ],
+                                  ),
+                                ),
+                              ]))
+                            ],
+                          );
+                        })
+                    : const Center(
+                        child: Text("No posts yet"),
+                      );
+              },
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(
+                  backgroundColor: Colors.red, color: Colors.green),
+            );
+          }
+        });
 
 // final provider = Provider.of<ProfileProvider>(context);
 // List<dynamic>? langList = provider.getLangs;
@@ -402,15 +481,17 @@ class _MyWidgetState extends State<BodyTwo> {
 //       ),
 //     ]),
 // for (int i = 0; i < langList.length; i++)
-                              //  Text("•${langList[i]} "),
-                              // Row(
-              //   children: [
-              //     Text(
-              //       'pos: ${provider.getId}',
-              //       style: const TextStyle(
-              //         fontSize: 16,
-              //         fontWeight: FontWeight.normal,
-              //       ),
-              //     ),
-              //   ],
-              // ),
+    //  Text("•${langList[i]} "),
+    // Row(
+    //   children: [
+    //     Text(
+    //       'pos: ${provider.getId}',
+    //       style: const TextStyle(
+    //         fontSize: 16,
+    //         fontWeight: FontWeight.normal,
+    //       ),
+    //     ),
+    //   ],
+    // ),
+  }
+}

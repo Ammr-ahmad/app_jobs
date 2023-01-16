@@ -5,6 +5,7 @@ import '../pages/prefrences/app_pref.dart';
 
 class CompanyProvider extends ChangeNotifier {
   List<CompanyData> companies = [];
+
   List<CompanyData> get getComList => companies;
 
   var headers = {
@@ -13,7 +14,6 @@ class CompanyProvider extends ChangeNotifier {
   };
 
   getPostFromApi() async {
-    // print(ApplicationPrefrencesData.token!);
     var response = await serviceCall.serviceCall(
         url: "user/companies", methodType: "get", headers: headers);
 

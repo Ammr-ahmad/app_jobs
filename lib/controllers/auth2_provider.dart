@@ -5,11 +5,11 @@ import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
 import 'package:flutter/cupertino.dart';
 
 class ProviderSignUp extends ChangeNotifier {
-  bool _isAuth = false;
-  get getIsAuthStatus => _isAuth;
+  bool _authSignUp = false;
+  get getIsAuthStatus => _authSignUp;
 
   changeAuthStatus() {
-    _isAuth = !_isAuth;
+    _authSignUp = !_authSignUp;
     notifyListeners();
   }
 
@@ -17,7 +17,7 @@ class ProviderSignUp extends ChangeNotifier {
     'Content-type': 'application/json; charset=UTF-8',
   };
 
-  loginApi(
+  signUp(
       {required String username,
       required String email,
       required String password,

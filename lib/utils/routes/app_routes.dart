@@ -1,4 +1,3 @@
-import 'package:final_project_job2023/components/bottom_nav_bar/bottom_nav_main.dart';
 import 'package:final_project_job2023/main_jobs.dart';
 import 'package:final_project_job2023/pages/company_body/gridview_company.dart';
 import 'package:final_project_job2023/splash_screen.dart';

@@ -1,66 +1,88 @@
 class JobSeekersData {
   String? id;
-  String? userId;
+  String? role;
   String? name;
   String? email;
-  int? phone;
+  String? phone;
+  String? password;
+  List<dynamic>? notifications;
+  List<dynamic>? wantedPositions;
   String? gender;
-  String? bio;
-  String? location;
   String? dob;
-  List<String>? skills;
-  List<String>? experince;
-  List<String>? wantedPositions;
-  List<String>? language;
-  String? createdDate;
-  int? v;
-  String? avaIlable;
-  String? isRemotly;
-  List<String>? levelOfEducation;
+  String? bio;
   String? nationality;
+  String? education;
+  List<dynamic>? levelOfEducation;
+  List<dynamic>? skills;
+  String? isAvailable;
+  String? isRemotly;
+  List<dynamic>? typeOfwork;
+  List<dynamic>? experince;
+  List<dynamic>? language;
+  List<dynamic>? favourites;
+  String? isHidden;
+  String? createdAt;
+  String? updatedAt;
+  String? createdDate;
+  String? v;
+  String? avaIlable;
 
   JobSeekersData({
     this.id,
-    this.userId,
+    this.role,
     this.name,
     this.email,
     this.phone,
-    this.gender,
-    this.bio,
-    this.location,
-    this.dob,
-    this.skills,
-    this.experince,
+    this.password,
+    this.notifications,
     this.wantedPositions,
-    this.language,
-    this.createdDate,
-    this.v,
+    this.gender,
+    this.dob,
+    this.bio,
+    this.nationality,
+    this.education,
+    this.levelOfEducation,
+    this.skills,
     this.avaIlable,
     this.isRemotly,
-    this.levelOfEducation,
-    this.nationality,
+    this.typeOfwork,
+    this.experince,
+    this.language,
+    this.favourites,
+    this.isHidden,
+    this.createdAt,
+    this.updatedAt,
+    this.createdDate,
+    this.v,
   });
   factory JobSeekersData.fromJson(Map<String, dynamic> data) {
     return JobSeekersData(
-      id: data['id'],
-      userId: data['userId'],
+      id: data['_id'],
+      role: data['role'],
       name: data['name'],
       email: data['email'],
       phone: data['phone'],
+      password: data['password'],
+      notifications: data['notifications'],
+      wantedPositions: data['wantedPositions'],
       gender: data['gender'],
-      bio: data['bio'],
-      location: data['location'],
       dob: data['dob'],
+      bio: data['bio'],
+      nationality: data['nationality'],
+      education: data['education'],
       skills: data['skills'],
       experince: data['experince'],
-      wantedPositions: data['wantedPositions'],
+      levelOfEducation: data['levelOfEducation'],
       language: data['language'],
       createdDate: data['createdDate'],
       v: data['v'],
       avaIlable: data['avaIlable'],
       isRemotly: data['isRemotly'],
-      levelOfEducation: data['levelOfEducation'],
-      nationality: data['nationality'],
+      typeOfwork: data['typeOfwork'],
+      favourites: data['favourites'],
+      isHidden: data['isHidden'],
+      createdAt: data['createdAt'],
+      updatedAt: data['updatedAt'],
     );
   }
 }

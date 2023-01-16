@@ -11,9 +11,8 @@ class MyRunApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarMain(),
-      drawer: AppDrawer(),
       body: BottomNavigationBarPages(),
+      drawer: AppDrawer(),
     );
-    ;
   }
 }

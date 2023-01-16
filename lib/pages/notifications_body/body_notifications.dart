@@ -1,4 +1,3 @@
-import 'package:final_project_job2023/components/appbar/appbar_main.dart';
 import 'package:final_project_job2023/pages/notifications_body/card_notifications.dart';
 import 'package:flutter/material.dart';
 

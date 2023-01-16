@@ -2,6 +2,8 @@ import 'package:final_project_job2023/components/appbar/appbar_auth.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import '../../../controllers/auth2_provider.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({
@@ -23,16 +25,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool secure = true;
   String? gender;
   String? dateofbarith;
-
-  // Future<void> signUp() async {
-  //   try {
-  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //         email: emailController.text.trim(),
-  //         password: usernameController.text.trim());
-  //   } on FirebaseAuthException catch (e) {
-  //     print(e);
-  //   }
-  // }
 
   @override
   void dispose() {
@@ -422,44 +414,61 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)),
-                        elevation: 0.6,
-                        backgroundColor: Colors.blue.shade900,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          if (formkey.currentState!.validate()) {
-                            //signUp;
-                            // usersignUp(
-                            //   usernameController.text,
-                            //   emailController.text,
-                            //   passwordController.text,
-                            //   phoneController.text,
-                            //   dateInputController.text,
-                            // );
-                          }
-                          Navigator.pop(context);
-                        });
-                      },
-                      child: const SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: Center(
-                          child: Text(
-                            'SIGN UP',
-                            style: TextStyle(
-                                letterSpacing: 1,
-                                fontSize: 18.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      )),
-                )
+                Consumer<ProviderSignUp>(builder: (ctx, authSignUp, ch) {
+                  return authSignUp.getIsAuthStatus
+                      ? const CircularProgressIndicator(
+                          color: Colors.red,
+                          backgroundColor: Colors.green,
+                        )
+                      : SizedBox(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                elevation: 0.6,
+                                backgroundColor: Colors.blue.shade900,
+                              ),
+                              onPressed: () async {
+                                if (formkey.currentState!.validate()) {
+                                  await authSignUp
+                                      .signUp(
+                                    username: usernameController.text,
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                    phone: phoneController.text,
+                                    date: dateInputController.text,
+                                  )
+                                      .then((value) {
+                                    if (value) {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return const SignInScreen();
+                                          },
+                                        ),
+                                      );
+                                    } else {
+                                      print("7aga 3lat");
+                                    }
+                                  });
+                                }
+                              },
+                              child: const SizedBox(
+                                width: double.infinity,
+                                height: 50,
+                                child: Center(
+                                  child: Text(
+                                    'SIGN UP',
+                                    style: TextStyle(
+                                        letterSpacing: 1,
+                                        fontSize: 18.0,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              )),
+                        );
+                })
               ],
             ),
           ),

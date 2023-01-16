@@ -1,10 +1,10 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:final_project_job2023/components/drawer/drawer_setting.dart';
-import 'package:final_project_job2023/splash_screen.dart';
+import 'package:final_project_job2023/pages/jobseekers_body/body_jobseekers_own.dart';
+import 'package:final_project_job2023/views/widgets/authentications/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../api/api_key_main.dart';
-import '../../pages/notifications_body/body_notifications.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -44,16 +44,12 @@ class _AppDrawerState extends State<AppDrawer> {
                   width: 30,
                   height: 30,
                 ),
-                onTap: () {}),
-            DrawerDesignSetting(
-              title: ApiKey.notifications,
-              icon: SvgPicture.asset(
-                "assets/icons/translate.svg",
-                width: 30,
-                height: 30,
-              ),
-              trailing: const BodyNotifications(),
-            ),
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: ((context) {
+                    return const BodyOwn();
+                  })));
+                }),
             DrawerDesignSetting(
                 trailing: const Icon(
                   Icons.arrow_forward,
@@ -77,7 +73,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       },
                       btnOkText: 'Yes',
                       btnOkOnPress: () {
-                        Navigator.of(context).pushNamed(SplashScreen.routeName);
+                        Navigator.of(context).pushNamed(SignInScreen.routeName);
                       },
                     ).show()),
           ],

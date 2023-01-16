@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
+import 'api_key_main.dart';
+
 class CallApiServices {
-  static String baseUrl = 'https://7c0b-46-32-121-72.eu.ngrok.io/api';
+  static String baseUrl = '${ApiKey.baseApi}';
   Future<dynamic> serviceCall(
       {required String url,
       required String methodType,

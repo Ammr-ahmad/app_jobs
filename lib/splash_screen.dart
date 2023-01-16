@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:final_project_job2023/pages/company_body/body_company.dart';
+import 'package:final_project_job2023/main_jobs.dart';
 import 'package:final_project_job2023/pages/prefrences/app_pref.dart';
 import 'package:final_project_job2023/pages/prefrences/helper_cash.dart';
 import 'package:final_project_job2023/views/widgets/authentications/sign_in_screen.dart';
@@ -21,10 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 4), () {
       if (HelperSave.prefs!.getString("token") != null) {
         ApplicationPrefrencesData.getUserDataFromShared();
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: ((context) {
-          return const BodyCompany();
-        })));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return const MyRunApp();
+        }));
       } else {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: ((context) {
@@ -62,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 20,
             ),
             Text(
-              'WelCome App JobSeekers',
+              'WelCome App JobSeekers ',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
